@@ -1,5 +1,7 @@
+import TodoForm from '../components/todo/TodoForm';
+
 const EditTodo = () => {
-    return <div></div>
+    return <TodoForm />
 }
 
 export default EditTodo;

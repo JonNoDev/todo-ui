@@ -18,7 +18,6 @@ const AuthForm = ({ type }) => {
     const form = event.target;
     const formData = new FormData(form);
     const payload = Object.fromEntries(formData.entries());
-    console.log(JSON.stringify(payload));
 
     const endpoint = `${process.env.REACT_APP_BACKEND_URL}/auth/${type}`;
 

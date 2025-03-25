@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import AddTodo from './pages/AddTodo';
 import EditTodo from './pages/EditTodo';
 import DeleteTodo from './pages/DeleteTodo';
+import ViewTodo from './pages/ViewTodo';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           <Route path="/add-todo" element={<AddTodo />} />
           <Route path="/edit-todo/:id" element={<EditTodo />} />
           <Route path="/delete-todo/:id" element={<DeleteTodo />} />
-          <Route path="/view-todo/:id" element={<DeleteTodo />} />
+          <Route path="/view-todo/:id" element={<ViewTodo />} />
         </Route>
       </Routes>
     </Router>
