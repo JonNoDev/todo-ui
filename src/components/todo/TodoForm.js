@@ -7,8 +7,10 @@ import {
     MenuItem,
     Select,
     FormControl,
-    InputLabel
+    InputLabel,
+    IconButton
 } from '@mui/material';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const TodoForm = () => {
@@ -39,12 +41,12 @@ const TodoForm = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-      
+
         setTodo(prev => ({
-          ...prev,
-          [name]: name === 'completed' ? value === 'true' : value
+            ...prev,
+            [name]: name === 'completed' ? value === 'true' : value
         }));
-      };      
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -95,6 +97,13 @@ const TodoForm = () => {
                 fontFamily: 'Montserrat, sans-serif'
             }}
         >
+            <IconButton
+                onClick={() => navigate(-1)}
+                sx={{ alignSelf: 'flex-start', mt: -2 }}
+            >
+                <ArrowBackIcon />
+            </IconButton>
+
             <Typography variant="h4" align="center">
                 {isEditMode ? `Edit ${todo.title}` : 'Create Task'}
             </Typography>
