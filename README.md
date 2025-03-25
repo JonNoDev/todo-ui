@@ -38,7 +38,7 @@ REACT_APP_BACKEND_URL=http://localhost:8080
 
 ---
 
-### 4. Available Scripts
+## 📦 Available Scripts
 
 `npm start`
 Runs the app in development mode at http://localhost:3000
