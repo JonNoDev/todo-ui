@@ -26,6 +26,11 @@
     text-decoration: underline;
 }
 
+.buttonReset {
+    all: unset;
+    cursor: pointer;
+}
+
 .button {
     background-color: #00B2D6;
     color: white;
