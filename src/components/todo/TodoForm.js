@@ -87,8 +87,8 @@ const TodoForm = () => {
             component="form"
             onSubmit={handleSubmit}
             sx={{
-                mt: { xs: 4, sm: 6, md: 10 },      
-                px: { xs: 2, sm: 4 }, 
+                mt: { xs: 4, sm: 6, md: 10 },
+                px: { xs: 2, sm: 4 },
                 mx: 'auto',
                 width: '100%',
                 maxWidth: 500,
