@@ -19,6 +19,7 @@ function App() {
           <Route path="/add-todo" element={<AddTodo />} />
           <Route path="/edit-todo/:id" element={<EditTodo />} />
           <Route path="/delete-todo/:id" element={<DeleteTodo />} />
+          <Route path="/view-todo/:id" element={<DeleteTodo />} />
         </Route>
       </Routes>
     </Router>

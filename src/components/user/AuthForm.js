@@ -1,5 +1,12 @@
+import React from 'react';
+import {
+  Box,
+  TextField,
+  Typography,
+  Button,
+  Link as MuiLink
+} from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
-import styles from './AuthForm.module.css';
 
 const AuthForm = ({ type }) => {
   const navigate = useNavigate();
@@ -36,29 +43,66 @@ const AuthForm = ({ type }) => {
   };
 
   return (
-    <div className={styles.authContainer}>
-      <h2 className={styles.title}>{isRegister ? 'Register' : 'Login'}</h2>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <label>
-          Email
-          <input name="email" type="text" required />
-        </label>
-        <label>
-          Password
-          <input name="password" type="password" required />
-        </label>
+    <Box
+      component="form"
+      onSubmit={handleSubmit}
+      sx={{
+        mt: 10,
+        mx: 'auto',
+        width: '100%',
+        maxWidth: 400,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 2,
+        alignItems: 'center',
+        fontFamily: 'Montserrat, sans-serif'
+      }}
+    >
+      <Typography variant="h4" component="h2" sx={{ mb: 2 }}>
+        {isRegister ? 'Register' : 'Login'}
+      </Typography>
 
-        {isRegister ? (
-          <Link to="/login" className={styles.altLink}>Already got an account?</Link>
-        ) : (
-          <Link to="/register" className={styles.altLink}>Create an account</Link>
-        )}
+      <TextField
+        label="Email"
+        name="email"
+        type="email"
+        fullWidth
+        variant="filled"
+        required
+      />
+      <TextField
+        label="Password"
+        name="password"
+        type="password"
+        fullWidth
+        variant="filled"
+        required
+      />
 
-        <button type="submit" className={styles.submitBtn}>
-          {isRegister ? 'Register' : 'Login'}
-        </button>
-      </form>
-    </div>
+      <MuiLink
+        component={Link}
+        to={isRegister ? '/login' : '/register'}
+        underline="hover"
+        sx={{ fontSize: '0.9rem', color: '#00bcd4' }}
+      >
+        {isRegister ? 'Already got an account?' : 'Create an account'}
+      </MuiLink>
+
+      <Button
+        type="submit"
+        variant="contained"
+        sx={{
+          mt: 1,
+          px: 4,
+          py: 1,
+          borderRadius: '20px',
+          backgroundColor: '#00bcd4',
+          textTransform: 'none'
+        }}
+      >
+        {isRegister ? 'Register' : 'Login'}
+      </Button>
+    </Box>
   );
 };
 
