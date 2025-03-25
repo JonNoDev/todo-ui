@@ -75,11 +75,9 @@ const ViewTodo = () => {
                 <ArrowBackIcon />
             </IconButton>
 
-
-
             <Typography variant="h4" gutterBottom sx={{
-                    textAlign: 'center',
-                }}>
+                textAlign: 'center',
+            }}>
                 {todo.title}
             </Typography>
 
@@ -95,8 +93,8 @@ const ViewTodo = () => {
             </Typography>
 
             <Typography variant="subtitle1" gutterBottom sx={{
-                    textAlign: 'center',
-                }}>
+                textAlign: 'center',
+            }}>
                 <strong>Status:</strong>{' '}
                 <span style={{ fontWeight: 700 }}>
                     {todo.complete ? 'COMPLETE' : 'INCOMPLETE'}
