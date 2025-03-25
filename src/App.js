@@ -1,11 +1,25 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Home from './pages/Home';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import AddTodo from './pages/AddTodo';
+import EditTodo from './pages/EditTodo';
+import DeleteTodo from './pages/DeleteTodo';
 
 function App() {
   return (
-    <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-      <h1>Todo App</h1>
-      <p>Welcome to your todo app!</p>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/add-todo" element={<AddTodo />} />
+        <Route path="/edit-todo/:id" element={<EditTodo />} />
+        <Route path="/delete-todo/:id" element={<DeleteTodo />} />
+      </Routes>
+    </Router>
   );
 }
 
