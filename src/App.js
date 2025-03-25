@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
 
 import Layout from './components/Layout';
 import Home from './pages/Home';
@@ -10,6 +11,22 @@ import DeleteTodo from './pages/DeleteTodo';
 import ViewTodo from './pages/ViewTodo';
 
 function App() {
+  const token = localStorage.getItem('token');
+  if (token) {
+    try {
+      const { exp } = jwtDecode(token);
+      const now = Date.now() / 1000;
+
+      if (exp < now) {
+        localStorage.removeItem('token');
+        console.log('Token expired — removed from localStorage');
+      }
+    } catch (err) {
+      console.error('Invalid token — removing');
+      localStorage.removeItem('token');
+    }
+  }
+
   return (
     <Router>
       <Routes>
