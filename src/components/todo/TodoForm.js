@@ -87,16 +87,17 @@ const TodoForm = () => {
             component="form"
             onSubmit={handleSubmit}
             sx={{
-                mt: 10,
+                mt: { xs: 4, sm: 6, md: 10 },      
+                px: { xs: 2, sm: 4 }, 
                 mx: 'auto',
                 width: '100%',
                 maxWidth: 500,
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 3,
-                fontFamily: 'Montserrat, sans-serif'
+                gap: 3
             }}
         >
+
             <IconButton
                 onClick={() => navigate(-1)}
                 sx={{ alignSelf: 'flex-start', mt: -2 }}

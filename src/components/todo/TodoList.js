@@ -12,6 +12,8 @@ import {
     Paper,
     CircularProgress
 } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 const TodoList = () => {
     const [todos, setTodos] = useState([]);
@@ -50,11 +52,13 @@ const TodoList = () => {
         return true;
     });
 
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
     return (
-        <Box sx={{ mt: 10, px: 2, fontFamily: 'Montserrat, sans-serif' }}>
+        <Box sx={{ mt: 10, px: 2 }}>
             <Typography variant="h4" align="center" gutterBottom>
-                User’s Todo List
+                Todo List
             </Typography>
 
             <Stack
@@ -117,25 +121,27 @@ const TodoList = () => {
                                     View
                                 </Button>
 
-                                <Button
-                                    size="small"
-                                    variant="contained"
-                                    component={RouterLink}
-                                    to={`/edit-todo/${todo.id}`}
-                                    sx={{ backgroundColor: '#ffc107' }}
-                                >
-                                    Edit
-                                </Button>
+                                {!isMobile && <>
+                                    <Button
+                                        size="small"
+                                        variant="contained"
+                                        component={RouterLink}
+                                        to={`/edit-todo/${todo.id}`}
+                                        sx={{ backgroundColor: '#ffc107' }}
+                                    >
+                                        Edit
+                                    </Button>
 
-                                <Button
-                                    size="small"
-                                    variant="contained"
-                                    component={RouterLink}
-                                    to={`/delete-todo/${todo.id}`}
-                                    sx={{ backgroundColor: '#d32f2f' }}
-                                >
-                                    Delete
-                                </Button>
+                                    <Button
+                                        size="small"
+                                        variant="contained"
+                                        component={RouterLink}
+                                        to={`/delete-todo/${todo.id}`}
+                                        sx={{ backgroundColor: '#d32f2f' }}
+                                    >
+                                        Delete
+                                    </Button>
+                                </>}
 
                             </Stack>
                         </Paper>

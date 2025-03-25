@@ -54,7 +54,6 @@ const AuthForm = ({ type }) => {
         flexDirection: 'column',
         gap: 2,
         alignItems: 'center',
-        fontFamily: 'Montserrat, sans-serif'
       }}
     >
       <Typography variant="h4" component="h2" sx={{ mb: 2 }}>
